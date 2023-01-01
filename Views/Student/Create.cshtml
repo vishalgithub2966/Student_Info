@@ -1,0 +1,64 @@
+﻿@model Student
+<form method="post" class="container">
+    <div class="col-8 border p-3 mt-4">
+        <div class="pb-2">
+            <h2 class="text-primary">Create Student</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label asp-for="Joining_Date"></label>
+                <input asp-for="Joining_Date" class="form-control" />
+                <span asp-validation-for="Joining_Date" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="MemberId"></label>
+                <input asp-for="MemberId" class="form-control" />
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label>IdProof Type</label>
+                <select class="form-select">
+                    <option selected>Select</option>
+                    <option value="Aadhaar">Aadhaar </option>
+                    <option value="PAN">PAN</option>
+                </select>
+            </div>
+            <div class="mb-3 mt-6 col-6">
+                <label asp-for="IdProof"></label>
+                <input asp-for="IdProof" class="form-control" />
+                <span asp-validation-for="IdProof" class="text-danger"></span>
+            </div>
+            <div>   </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label for="formFile" class="form-label">Upload Profile Picture</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-info" style="width:150px">Create</button>
+        <a asp-controller="Student" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to List</a>   
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
