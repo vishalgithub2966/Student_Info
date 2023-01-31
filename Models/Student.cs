@@ -14,7 +14,7 @@ namespace Student_Info.Models
         [StringLength(10)]
         public string? Phone { get; set; }
        
-        public string IdProof { get; set; }
+        public string? IdProof { get; set; }
         public DateTime? Joining_Date { get; set; } = DateTime.Now;
     }
 }

@@ -88,10 +88,14 @@ namespace Student_Info.Controllers
             {
                 return NotFound();
             }
+            else
+            {
                 _db.Students.Remove(obj);
                 _db.SaveChanges();
                 TempData["Success"] = "Students deleted successfully";
                 return RedirectToAction("Index");
+            }
+                
             }
             
         }

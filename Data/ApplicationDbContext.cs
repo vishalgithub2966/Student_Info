@@ -9,6 +9,6 @@ namespace Student_Info.Data
         {
 
         }
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Student>? Students { get; set; }
     }
 }
