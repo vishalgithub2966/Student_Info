@@ -1,0 +1,31 @@
+version: '3.4'
+
+networks:
+  demostudentapp:
+services:
+  demoappdb:
+    container_name: s-container
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=test@1234
+    networks:
+      - demostudentapp
+  student_info:
+    container_name: std-container
+    image: ${DOCKER_REGISTRY-}studentinfo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8001:80 
+    depends_on:
+      - demoappdb
+    environment:
+      - DB_HOST=demoappdb
+      - DB_NAME=StudentInfo
+      - DB_SA_PASSWORD=test@1234
+    networks:
+      - demostudentapp
